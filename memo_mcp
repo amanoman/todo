@@ -4,8 +4,19 @@
 claude mcp add context7 -- npx -y @upstash/context7-mcp #npx前にスペースが必要
 #使い方
 #プロンプトに「use context7」を追加する。
+#スコープを追加、-s user 自分のプロジェクト下であれば常に呼び出せるようになる
+claude mcp add context7  -s user-- npx -y @upstash/context7-mcp
 
 #MCPサーバの追加方法
 claude mcp add<name><command>[args...]
 #MCPリストの確認
 claude mcp list
+
+#Playwright
+claude mcp add Playwright npx @Playwright/mcp@latest
+
+#Serena
+#uvxコマンドを使えるようにする
+curl -LsSf https://astral.sh/uv/install.sh | sh
+#リモートリポジトリを使って実行する場合
+claude mcp add serena -- uvx --from git+https://github.com/oraios/serena serena-mcp-server --context ide-assistant --project /workspaces/todo
