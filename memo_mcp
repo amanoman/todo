@@ -1,0 +1,11 @@
+#context7 
+#ライブラリの最新のドキュメントを参照してくれるMCPサーバ。
+#インストール
+claude mcp add context7 -- npx -y @upstash/context7-mcp #npx前にスペースが必要
+#使い方
+#プロンプトに「use context7」を追加する。
+
+#MCPサーバの追加方法
+claude mcp add<name><command>[args...]
+#MCPリストの確認
+claude mcp list

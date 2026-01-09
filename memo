@@ -1,0 +1,35 @@
+curl -fsSL https://claude.ai/install.sh | bash
+sudo apt install gh
+gh auth login
+
+/init #初期化
+/ide #IDEとの連携機能の有効化VSCodeかJetBrainsか。連携している場合は3 lines selectedなど右下にでる。
+@ファイル名 #ファイルの指定
+/usage #使用量確認
+ultrathink #拡張思考モード=トークン予算最大で思考する。難問題、コードを大規模に横断して思考させたい場合。「熟考」などでも可。トークン消費注意。
+対話モードでtab #→思考拡張モードになる。
+
+shift+tabでauto-accept
+Ctrl+r 履歴の検索が可能
+Ctrl+t 省略されているtodosを表示
+
+gh repo create<リポジトリ名> --private --source=.--remote=origin
+
+#前回の続きから再開する
+caude --continue
+claude -c 
+# メモリに即座に追加する
+/context #コンテキストの使用状況を確認
+/clear #会話履歴のクリア
+/resume #会話履歴の復元
+/rewind #チャット履歴の巻き戻し
+/compact #コンテキストの圧縮　/compact APIの使用についてフォーカスしてください など指定できる
+
+/permissions 特定のコマンドの実行の許可を追加する
+ENABLE_BACKGROUND_TASKS=1 claude #1時的にバックグラウンド実行タスクを増やす
+
+
+「作業前に質問があれば質問してください。」
+
+/exit
+/logout
