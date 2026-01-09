@@ -13,7 +13,7 @@ claude mcp add<name><command>[args...]
 claude mcp list
 
 #Playwright
-claude mcp add Playwright npx @Playwright/mcp@latest
+claude mcp add Playwright npx -y @playwright/mcp@latest
 
 #Serena
 #uvxコマンドを使えるようにする
