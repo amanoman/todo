@@ -1,13 +1,17 @@
 {
-  "name": "codespaces-claude-mcp",
+  "name": "codespaces-claude-gh-python-mcp",
 
   "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
 
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {},
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" },
-    "ghcr.io/devcontainers/features/node:1": { "version": "20" }
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.12"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    }
   },
 
   "remoteUser": "vscode",
@@ -22,6 +26,5 @@
     }
   },
 
-  "postCreateCommand": "bash -lc 'chmod +x .devcontainer/setup-mcp.sh && .devcontainer/setup-mcp.sh'"
-
+  "postCreateCommand": "bash -lc 'set -euo pipefail; sudo apt-get update; sudo apt-get install -y curl ca-certificates; if ! command -v claude >/dev/null 2>&1; then curl -fsSL https://claude.ai/install.sh | bash; fi; curl -LsSf https://astral.sh/uv/install.sh | sh; chmod +x .devcontainer/setup-mcp.sh; .devcontainer/setup-mcp.sh'"
 }
