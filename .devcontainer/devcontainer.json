@@ -22,5 +22,6 @@
     }
   },
 
-  "postCreateCommand": "bash -lc 'set -euo pipefail; sudo apt-get update; sudo apt-get install -y curl ca-certificates; echo \"== Install Claude Code ==\"; curl -fsSL https://claude.ai/install.sh | bash; echo \"claude: $(command -v claude || true)\"; echo \"== Install uv (for uvx) ==\"; curl -LsSf https://astral.sh/uv/install.sh | sh; export PATH=\"$HOME/.local/bin:$PATH\"; echo \"uv: $(command -v uv || true)\"; echo \"uvx: $(command -v uvx || true)\"; echo \"== Add MCP servers ==\"; claude mcp add context7 -- npx -y @upstash/context7-mcp || true; claude mcp add playwright -- npx @playwright/mcp@latest || true; claude mcp add serena --scope project -- uvx --from git+https://github.com/oraios/serena serena-mcp-server --context ide-assistant --project \"$(pwd)\" || true; echo \"== Versions ==\"; gh --version; node --version; npm --version; python --version; claude --version || true; echo \"== MCP list ==\"; claude mcp list || true'"
+  "postCreateCommand": "bash -lc 'chmod +x .devcontainer/setup-mcp.sh && .devcontainer/setup-mcp.sh'"
+
 }
