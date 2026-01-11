@@ -17,4 +17,4 @@ add_if_missing () {
 
 add_if_missing "context7"   npx -y @upstash/context7-mcp
 add_if_missing "playwright" npx @playwright/mcp@latest
-add_if_missing "serena"     uvx --from git+https://github.com/oraios/serena serena-mcp-server --context ide-assistant --project /workspaces/todo
+add_if_missing "serena"     uvx --from git+https://github.com/oraios/serena serena-mcp-server --context claude-code --project /workspaces/todo
