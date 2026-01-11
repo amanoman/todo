@@ -1,0 +1,13 @@
+{
+  "name": "codespaces-claude",
+
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+
+  "remoteUser": "vscode",
+
+  "postCreateCommand": "bash -lc 'set -euo pipefail; sudo apt-get update; sudo apt-get install -y curl ca-certificates; curl -fsSL https://claude.ai/install.sh | bash; echo \"claude installed at: $(command -v claude || true)\"; claude --version || true'"
+}
