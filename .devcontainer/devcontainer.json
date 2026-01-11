@@ -26,5 +26,6 @@
     }
   },
 
-  "postCreateCommand": "bash -lc 'set -euo pipefail; sudo apt-get update; sudo apt-get install -y curl ca-certificates; if ! command -v claude >/dev/null 2>&1; then curl -fsSL https://claude.ai/install.sh | bash; fi; curl -LsSf https://astral.sh/uv/install.sh | sh; chmod +x .devcontainer/setup-mcp.sh; .devcontainer/setup-mcp.sh'"
+  "postCreateCommand": "bash -lc 'set -u; export PATH=\"$HOME/.local/bin:$PATH\"; sudo apt-get update || true; sudo apt-get install -y curl ca-certificates || true; if [ ! -x \"$HOME/.local/bin/claude\" ]; then curl -fsSL https://claude.ai/install.sh | bash || true; fi; export PATH=\"$HOME/.local/bin:$PATH\"; \"$HOME/.local/bin/claude\" --version || true; curl -LsSf https://astral.sh/uv/install.sh | sh || true; export PATH=\"$HOME/.local/bin:$PATH\"; uvx --version || true; chmod +x .devcontainer/setup-mcp.sh || true; .devcontainer/setup-mcp.sh || true; gh --version || true; node --version || true; python --version || true'"
+
 }
